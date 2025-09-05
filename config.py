@@ -2,23 +2,22 @@ from pathlib import Path
 
 def get_config():
     return {
-        "batch_size": 8,
-        "num_epochs": 20,
-        "lr": 10**-4,
-        "seq_len": 350,
+        "batch_size": 32,
+        "num_epochs": 10,
+        "lr": 1e-4,
+        "seq_len": 400,
         "d_model": 512,
-
-        # Choose language pair and dataset
-        "datasource": "opus_books",
+        "datasource": "cfilt/iitb-english-hindi",        # or opusbooks
         "lang_src": "en",
-        "lang_tgt": "it",
-
-        "model_folder": "weights",
-        "model_filename": "t_model_",
-        "preload": None,
+        "lang_tgt": "hi",
         "tokenizer_file": "tokenizer_{}.json",
-        "experiment_name": "runs/model"
+        "model_folder": "weights",
+        "model_basename": "tmodel_",
+        "preload": None,
+        "experiment_name": "runs/eng-hi"
     }
+
+
 
 
 def get_weights_file_path(config, epoch:str):

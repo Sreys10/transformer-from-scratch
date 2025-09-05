@@ -38,11 +38,15 @@ def get_or_build_tokenizer(config, ds, lang):
 
 
 def get_ds(config):
-    ds_raw = load_dataset(
-        config['datasource'],
-        f"{config['lang_src']}-{config['lang_tgt']}",
-        split="train"
-    )
+    if config["datasource"] == "opus100":
+        ds_raw = load_dataset("opus100", f"{config['lang_src']}-{config['lang_tgt']}", split="train")
+    elif config["datasource"] == "hind_encorp":
+        ds_raw = load_dataset("hind_encorp", split="train")
+    elif config["datasource"] == "cfilt/iitb-english-hindi":
+        ds_raw = load_dataset("cfilt/iitb-english-hindi", split="train")
+    else:
+        raise ValueError(f"Unsupported dataset: {config['datasource']}")
+
 
     tokenizer_src = get_or_build_tokenizer(config, ds_raw, config['lang_src'])
     tokenizer_tgt = get_or_build_tokenizer(config, ds_raw, config['lang_tgt'])
