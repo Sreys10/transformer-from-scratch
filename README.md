@@ -3,8 +3,7 @@
 Minimal **Transformer NMT** model built from scratch. Translate **English → Hindi/Italian** with PyTorch. No Hugging Face!  
 
 ---
-https://github.com/Sreys10/transformer-from-scratch/raw/main/assets/image.png
-
+![Transformer Architecture](https://github.com/Sreys10/transformer-from-scratch/raw/main/assets/image.png)
 ## Features
 - Step-by-step Transformer: Embeddings, Positional Encoding, Multi-Head Attention  
 - Word-level tokenization + masks  
